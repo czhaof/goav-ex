@@ -133,10 +133,6 @@ func (avs *Stream) NbFrames() int64 {
 	return int64(avs.nb_frames)
 }
 
-func (avs *Stream) PtsWrapReference() int64 {
-	return int64(avs.pts_wrap_reference)
-}
-
 // func (avs *Stream) StartSkipSamples() int64 {
 // 	return int64(avs.start_skip_samples)
 // }
