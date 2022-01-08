@@ -89,10 +89,6 @@ func (avs *Stream) Index() int {
 	return int(avs.index)
 }
 
-func (avs *Stream) InjectGlobalSideData() int {
-	return int(avs.inject_global_side_data)
-}
-
 func (avs *Stream) NbIndexEntries() int {
 	return int(avs.nb_index_entries)
 }
@@ -129,28 +125,12 @@ func (avs *Stream) FirstDts() int64 {
 // 	return int64(avs.last_discard_sample)
 // }
 
-func (avs *Stream) LastDtsForOrderCheck() int64 {
-	return int64(avs.last_dts_for_order_check)
-}
-
 func (avs *Stream) LastIpPts() int64 {
 	return int64(avs.last_IP_pts)
 }
 
-func (avs *Stream) MuxTsOffset() int64 {
-	return int64(avs.mux_ts_offset)
-}
-
 func (avs *Stream) NbFrames() int64 {
 	return int64(avs.nb_frames)
-}
-
-func (avs *Stream) PtsBuffer() int64 {
-	return int64(avs.pts_buffer[0])
-}
-
-func (avs *Stream) PtsReorderError() int64 {
-	return int64(avs.pts_reorder_error[0])
 }
 
 func (avs *Stream) PtsWrapReference() int64 {
@@ -169,25 +149,9 @@ func (avs *Stream) Parser() *CodecParserContext {
 	return (*CodecParserContext)(unsafe.Pointer(avs.parser))
 }
 
-func (avs *Stream) LastInPacketBuffer() *AvPacketList {
-	return (*AvPacketList)(unsafe.Pointer(avs.last_in_packet_buffer))
-}
-
 // func (avs *Stream) PrivPts() *FFFrac {
 // 	return (*FFFrac)(unsafe.Pointer(avs.priv_pts))
 // }
-
-func (avs *Stream) DtsMisordered() uint8 {
-	return uint8(avs.dts_misordered)
-}
-
-func (avs *Stream) DtsOrdered() uint8 {
-	return uint8(avs.dts_ordered)
-}
-
-func (avs *Stream) PtsReorderErrorCount() uint8 {
-	return uint8(avs.pts_reorder_error_count[0])
-}
 
 func (avs *Stream) IndexEntriesAllocatedSize() uint {
 	return uint(avs.index_entries_allocated_size)
