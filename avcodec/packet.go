@@ -90,5 +90,5 @@ func (p *Packet) AvPacketRescaleTs(r, r2 Rational) {
 }
 
 func (p *Packet) AvPacketFree() {
-	C.av_packet_free((**C.struct_AVPacket)(&p))
+	C.av_packet_free((**C.struct_AVPacket)(unsafe.Pointer(&p)))
 }
