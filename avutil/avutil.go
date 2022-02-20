@@ -16,13 +16,14 @@ import (
 )
 
 type (
-	Options       C.struct_AVOptions
-	AvTree        C.struct_AVTree
-	Rational      C.struct_AVRational
-	MediaType     C.enum_AVMediaType
-	AvPictureType C.enum_AVPictureType
-	PixelFormat   C.enum_AVPixelFormat
-	File          C.FILE
+	Options        C.struct_AVOptions
+	AvTree         C.struct_AVTree
+	Rational       C.struct_AVRational
+	MediaType      C.enum_AVMediaType
+	AvPictureType  C.enum_AVPictureType
+	PixelFormat    C.enum_AVPixelFormat
+	File           C.FILE
+	AvSampleFormat C.enum_AVSampleFormat
 )
 
 //Return the LIBAvUTIL_VERSION_INT constant.
