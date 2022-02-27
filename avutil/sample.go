@@ -15,5 +15,5 @@ import "C"
 import "unsafe"
 
 func AvSamplesAllocArrayAndSamples(audioData ***uint8, lineSize *int, nbChannels int, nbSamples int, sampleFmt AvSampleFormat, align int) int {
-	return int(C.av_samples_alloc_array_and_samples((***C.uint8_t)(unsafe.Pointer(audioData)), (*C.int)(lineSize), (C.int)(nbChannels), (C.int)(nbSamples), (C.enum_AVSampleFormat)(sampleFmt), (C.int)(align)))
+	return int(C.av_samples_alloc_array_and_samples((***C.uint8_t)(unsafe.Pointer(audioData)), (*C.int)(unsafe.Pointer(lineSize)), (C.int)(nbChannels), (C.int)(nbSamples), (C.enum_AVSampleFormat)(sampleFmt), (C.int)(align)))
 }

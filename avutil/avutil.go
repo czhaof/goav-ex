@@ -9,6 +9,7 @@ package avutil
 
 //#cgo pkg-config: libavutil
 //#include <libavutil/avutil.h>
+//#include <libavutil/samplefmt.h>
 //#include <stdlib.h>
 import "C"
 import (

@@ -3,6 +3,8 @@
 
 package avcodec
 
+import "C"
+
 func (ctxt *Context) ActiveThreadType() int {
 	return int(ctxt.active_thread_type)
 }
@@ -425,4 +427,24 @@ func (ctxt *Context) SkipIdct() AvDiscard {
 
 func (ctxt *Context) SkipLoopFilter() AvDiscard {
 	return (AvDiscard)(ctxt.skip_loop_filter)
+}
+
+func (ctxt *Context) SetSampleFmt(format AvSampleFormat) {
+	ctxt.sample_fmt = (int32)(format)
+}
+
+func (ctxt *Context) SetChannelLayout(layout int) {
+	ctxt.channel_layout = (C.ulong)(layout)
+}
+
+func (ctxt *Context) SetChannels(number int) {
+	ctxt.channels = (C.int)(number)
+}
+
+func (ctxt *Context) SetSampleRate(rate int) {
+	ctxt.sample_rate = (C.int)(rate)
+}
+
+func (ctxt *Context) SetBitRate(rate int) {
+	ctxt.bit_rate = (C.long)(rate)
 }
