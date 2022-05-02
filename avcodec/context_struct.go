@@ -448,3 +448,7 @@ func (ctxt *Context) SetSampleRate(rate int) {
 func (ctxt *Context) SetBitRate(rate int) {
 	ctxt.bit_rate = (C.long)(rate)
 }
+
+func (ctxt *Context) SetProfile(profile int) {
+	ctxt.profile = (C.int)(profile)
+}

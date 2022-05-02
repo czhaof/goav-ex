@@ -6,6 +6,7 @@ package avutil
 	#include <stdlib.h>
 */
 import "C"
+import "unsafe"
 
 func (f *Frame) GetNbSamples() int {
 	return (int)(f.nb_samples)
@@ -29,4 +30,15 @@ func (f *Frame) GetChannelLayout() int {
 
 func (f *Frame) SetChannelLayout(layout int) {
 	f.channel_layout = (C.ulong)(layout)
+}
+
+func (f *Frame) SetDataByIndex(data *uint8, index int) {
+	if index >= int(C.AV_NUM_DATA_POINTERS) {
+		return
+	}
+	f.data[index] = (*C.uchar)(data)
+}
+
+func (f *Frame) CopyDataByIndex(data *uint8, index int, lenth int) {
+	C.memcpy(unsafe.Pointer(f.data[index]), unsafe.Pointer(data), C.ulong(lenth))
 }
